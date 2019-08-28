@@ -4,29 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>お問い合わせ</title>
 </head>
 <body>
-    <h1>お問い合わせ情報入力</h1>
-    <!-- action:送信先URLの指定 -->
-    <!-- method:送信方法(GET or POST) -->
-    <form action="check.php" method="POST">
-        <div>
-            <label for="name">名前</label><br>
-            <input id="name" type="text" name="username">
-        </div>
-        <div>
-            <label for="email">メールアドレス</label><br>
-            <input id="email" type="text" name="email">
-        </div>
+    <div class="border col-12">
+       <h1>お問い合わせ情報入力</h1>
+        <!-- action:送信先URLの指定 -->
+        <!-- method:送信方法(GET or POST) -->
+        <form action="check.php" method="POST">
+            <div class="form-group">
+                <div class="col-12 mb-5 border">
+                    <div>
+                        <label for="name">名前</label><br>
+                        <input id="name" type="text" name="username" class="form-control" required>
+                    </div>
+                    <div>
+                        <label for="email">メールアドレス</label><br>
+                        <input id="email" type="text" name="email" class="form-control" required>
+                    </div>
 
-        <div>
-            <label>内容</label><br>
-            <textarea name="content"></textarea>
-        </div>
-        <div>
-            <input type="submit" value="送信">
-        </div>
-    </form>
+                    <div>
+                        <label>内容</label><br>
+                        <textarea name="content" class="form-control" required></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" value="送信">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

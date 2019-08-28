@@ -39,19 +39,23 @@ if ($content == '') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>入力内容確認</title>
 </head>
 <body>
+<div class="border col-5 ml-3 mt-3">
     <h1>入力内容確認</h1>
+    <div class="col-12 mb-5 border">
+        <p class="border">名前：<?php echo $usernameResult; ?></p>
+        <p>メールアドレス：<?php echo $emailResult; ?></p>
+        <p>内容：<?php echo $contentResult; ?></p>
 
-    <p>名前：<?php echo $usernameResult; ?></p>
-    <p>メールアドレス：<?php echo $emailResult; ?></p>
-    <p>内容：<?php echo $contentResult; ?></p>
-
-    <form action="index.html">
-        <button>戻る</button>
-        <input type="submit" value="OK">
-    </form>
+        <form action="index.html">
+            <button>戻る</button>
+            <input type="submit" value="OK">
+        </form>
+    </div>
+</div>
 
 <?php
     if ($usernameError == 1) {

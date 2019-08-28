@@ -1,3 +1,7 @@
+<?php
+// スーパーグローバル変数(PHPが元々用意している変数)
+var_dump($_POST);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +13,14 @@
 <body>
     <h1>入力内容確認</h1>
 
-    <p>名前：○○</p>
-    <p>メールアドレス：○○@○○</p>
+    <p>名前：<?php echo $_POST["username"]; ?></p>
+    <p>メールアドレス：<?php echo $_POST["email"]; ?></p>
+    <p>内容：<?php echo $_POST["content"]; ?></p>
 
-    <form action="">
+    <form action="index.html">
         <button>戻る</button>
         <input type="submit" value="OK">
     </form>
-    
+
 </body>
 </html>

@@ -5,22 +5,31 @@
 $username = $_POST['username'];
 $email = $_POST['email'];
 $content = $_POST['content'];
+$usernameError = 0;
+$emailError = 0;
+$contentError = 0;
 
 // ユーザー名が空かチェック
 if ($username == '') {
     $usernameResult ='ユーザー名が入力されていません。';
+    $usernameError = 1;
 } else {
     $usernameResult = $username;
+    $usernameError = 0;
 }
 if ($email == '') {
     $emailResult ='emailが入力されていません。';
+    $emailError = 1;
 } else {
     $emailResult = $email;
+    $emailError = 0;
 }
 if ($content == '') {
     $contentResult ='内容が入力されていません。';
+    $contentError = 1;
 } else {
     $contentResult = $content;
+    $contentError = 0;
 }
 
 ?>
@@ -44,5 +53,14 @@ if ($content == '') {
         <input type="submit" value="OK">
     </form>
 
+<?php
+    if ($usernameError == 1) {
+        echo '<div>';
+        echo '<form action="check.php" method="post">';
+        echo '<input id="name" type="text" background="red" name="username">';
+        echo '</form>';
+        echo '</div>';
+    } 
+    ?>
 </body>
 </html>

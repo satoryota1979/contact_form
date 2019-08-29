@@ -1,4 +1,8 @@
 <?php
+
+// functions.php を読み込んで、定義した関数を使えるようにする
+require_once('functions.php');
+
 // スーパーグローバル変数(PHPが元々用意している変数)
 
 // 送信されてきた値の取得
@@ -6,9 +10,9 @@
 
 // エスケープ処理:htmlspecialchars
 // htmlspecialchars(対象の文字,オプション,文字コード)
-$username = htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8');
-$email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
-$content = htmlspecialchars($_POST['content'], ENT_QUOTES, 'UTF-8');
+$username = h($_POST['username']);
+$email = h($_POST['email']);
+$content = h($_POST['content']);
 
 
 // 入力無しエラー判定用、エラーの場合１
@@ -59,8 +63,11 @@ if ($content == '') {
         <p>メールアドレス：<?php echo $emailResult; ?></p>
         <p>内容：<?php echo $contentResult; ?></p>
 
-        <form action="index.html">
-            <button>戻る</button>
+        <form action="thanks.php" method="POST">
+            <input type="hidden" name="username" value="<?php echo $usernameResult; ?>">
+            <input type="hidden" name="email" value="<?php echo $emailResult; ?>">
+            <input type="hidden" name="content" value="<?php echo $contentResult; ?>">
+            <button type="button" onclick="history.back();">戻る</button>
             <input type="submit" value="OK">
         </form>
     </div>

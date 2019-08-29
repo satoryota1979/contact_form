@@ -1,4 +1,11 @@
 <?php
+
+// このページが表示された時の送信方法(GET or POST)の確認
+// GET送信のばいいは、入力画面に遷移する
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    header('Location: index.html');
+}
+
 // 1.functions.phpを読み込む
 // 2.$_POSTから送信された値を取得（エスケープ処理も）
 // 3.値を画面に表示する

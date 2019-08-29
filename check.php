@@ -1,5 +1,11 @@
 <?php
 
+// このページが表示された時の送信方法(GET or POST)の確認
+// GET送信のばいいは、入力画面に遷移する
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    header('Location: index.html');
+}
+
 // functions.php を読み込んで、定義した関数を使えるようにする
 require_once('functions.php');
 

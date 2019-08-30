@@ -9,11 +9,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 // 1.functions.phpを読み込む
 // 2.$_POSTから送信された値を取得（エスケープ処理も）
 // 3.値を画面に表示する
+
+// functions.phpを読み込む
 require_once('functions.php');
+// dbconnect.phpを読み込む
+require_once('dbconnect.php');
+
 $usernameResult = h($_POST['username']);
 $emailResult = h($_POST['email']);
 $contentResult = h($_POST['content']);
 
+// 受け取ったデータを元に、データベースに登録
+// SQLの準備
+$stmt = $dbh->prepare('INSERT INTO surveys(username, email, content, created_at) VALUES(?,?,?, now())');
+
+// SQLを実行
+// ?の部分に当たる値を配列で渡す
+$stmt->execute([$usernameResult, $emailResult, $contentResult]);
+
+// ?: SQLインジェクションの対策
 ?>
 
 <!DOCTYPE html>
